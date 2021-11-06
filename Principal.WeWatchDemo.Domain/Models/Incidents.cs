@@ -5,27 +5,35 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Principal.WeWatchDemo.SharedApi.Models
+namespace Principal.WeWatchDemo.Domain.Models
 {
-    public partial class Evidences
+    public partial class Incidents
     {
-        public Evidences()
+        public Incidents()
         {
+            Evidences = new HashSet<Evidences>();
             Medias = new HashSet<Medias>();
+            RejectedRequests = new HashSet<RejectedRequests>();
+            Reports = new HashSet<Reports>();
         }
 
         public int Id { get; set; }
-        public int IncidentId { get; set; }
         public int OwnerId { get; set; }
         public DateTime? DateOfEvent { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
+        public string Type { get; set; }
+        public bool? IsClosed { get; set; }
+        public bool? IsOwnerVictim { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? Updated { get; set; }
 
-        public virtual Incidents Incident { get; set; }
         public virtual Users Owner { get; set; }
+        public virtual ICollection<Evidences> Evidences { get; set; }
         public virtual ICollection<Medias> Medias { get; set; }
+        public virtual ICollection<RejectedRequests> RejectedRequests { get; set; }
+        public virtual ICollection<Reports> Reports { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Principal.WeWatchDemo.SharedApi.Models;
+using Principal.WeWatchDemo.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +33,14 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
 
         }
 
-        [HttpGet]
-        public IEnumerable<Evidences> getEvidenceList()
-        {
-            using (var context = new WeWatchDbDemoContext())
-            {
-                return context.Evidences.ToList();
-            }
+        //[HttpGet]
+        //public IEnumerable<Evidences> getEvidenceList()
+        //{
+        //    using (var context = new WeWatchDbDemoContext())
+        //    {
+        //        return context.Evidences.ToList();
+        //    }
 
-        }
+        //}
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Principal.WeWatchDemo.SharedApi.Models
+namespace Principal.WeWatchDemo.Domain.Models
 {
     public partial class Reports
     {

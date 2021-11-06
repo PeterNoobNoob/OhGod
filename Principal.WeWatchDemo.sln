@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Principal.WeWatchDemo.SharedApi", "Principal.WeWatchDemo.SharedApi\Principal.WeWatchDemo.SharedApi.csproj", "{FD21A1AE-489C-4660-9421-4E9ADE82ACEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Principal.WeWatchDemo.Domain", "Principal.WeWatchDemo.Domain\Principal.WeWatchDemo.Domain.csproj", "{F6FA998B-8A32-4467-9D3F-24F06BCC9947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FD21A1AE-489C-4660-9421-4E9ADE82ACEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD21A1AE-489C-4660-9421-4E9ADE82ACEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD21A1AE-489C-4660-9421-4E9ADE82ACEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6FA998B-8A32-4467-9D3F-24F06BCC9947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6FA998B-8A32-4467-9D3F-24F06BCC9947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6FA998B-8A32-4467-9D3F-24F06BCC9947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6FA998B-8A32-4467-9D3F-24F06BCC9947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

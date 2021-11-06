@@ -5,16 +5,18 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Principal.WeWatchDemo.SharedApi.Models
+namespace Principal.WeWatchDemo.Domain.Models
 {
-    public partial class RejectedRequests
+    public partial class Medias
     {
         public int Id { get; set; }
-        public int OwnerId { get; set; }
-        public int IncidentId { get; set; }
+        public int? EvidenceId { get; set; }
+        public int? IncidentId { get; set; }
+        public string Name { get; set; }
+        public string BlobFileAddress { get; set; }
         public DateTime? Created { get; set; }
 
+        public virtual Evidences Evidence { get; set; }
         public virtual Incidents Incident { get; set; }
-        public virtual Users Owner { get; set; }
     }
 }

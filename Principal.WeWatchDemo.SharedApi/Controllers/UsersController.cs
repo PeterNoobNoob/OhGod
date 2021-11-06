@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Principal.WeWatchDemo.SharedApi.Models;
+using Principal.WeWatchDemo.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
