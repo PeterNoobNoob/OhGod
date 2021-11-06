@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Principal.WeWatchDemo.SharedApi.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class WeWatchDemoController : ControllerBase
+    public class WeWatchController : ControllerBase
     {
 
 
 
         private readonly ILogger<UsersController> _logger;
 
-        public WeWatchDemoController(ILogger<UsersController> logger)
+        public WeWatchController(ILogger<UsersController> logger)
         {
             _logger = logger;
         }
