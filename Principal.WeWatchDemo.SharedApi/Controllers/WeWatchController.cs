@@ -15,9 +15,9 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
 
 
 
-        private readonly ILogger<UsersController> _logger;
+        private readonly ILogger<WeWatchController> _logger;
 
-        public WeWatchController(ILogger<UsersController> logger)
+        public WeWatchController(ILogger<WeWatchController> logger)
         {
             _logger = logger;
         }
