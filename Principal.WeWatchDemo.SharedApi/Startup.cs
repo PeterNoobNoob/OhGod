@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Principal.WeWatchDemo.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +29,13 @@ namespace Principal.WeWatchDemo.SharedApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //services.AddMvc(option => option.EnableEndpointRouting = false)
+            //    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            //    .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+            services.AddDbContext<WeWatchDbDemoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("WeWatchDemoConStrings")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Principal.WeWatchDemo.Domain.Models;
 using System;
@@ -14,68 +15,26 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
     {
 
 
-
+        private readonly WeWatchDbDemoContext _context;
         private readonly ILogger<WeWatchController> _logger;
 
-        public WeWatchController(ILogger<WeWatchController> logger)
+        public WeWatchController(ILogger<WeWatchController> logger, WeWatchDbDemoContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
 
+        // GET: api/Incidents
         [HttpGet]
-        public IEnumerable<Incidents> getIncidentList()
+        public async Task<ActionResult<IEnumerable<Incidents>>> GetIncidents()
         {
-            using (var context = new WeWatchDbDemoContext())
-            {
-                return context.Incidents.ToList();
-            }
-
+            return await _context.Incidents.ToListAsync();
         }
 
-        //[HttpGet]
-        //public Incidents getIncidentDetail(int id)
-        //{
-        //    using (var context = new WeWatchDbDemoContext())
-        //    {
-        //        return context.Incidents.Where(incident => incident.Id == id).FirstOrDefault();
-        //    }
-        //}
 
-        //[HttpPost]
-        //public Incidents saveIncident(int? id)
-        //{
-        //    if(id == null)
-        //    {
-        //        return new Incidents();
-        //    }
 
-        //    using (var context = new WeWatchDbDemoContext())
-        //    {
-        //        var incident = context.Incidents.Where(incident => incident.Id == id).FirstOrDefault(); // toto este dokoncit, nie je spravne. Ulozit!
-        //        context.SaveChanges();
-        //        return context.Incidents.Where(incident => incident.Id == id).FirstOrDefault(); // toto este dokoncit, nie je spravne. Ulozit! 
-        //    }
-        //}
 
-        //[HttpGet]
-        //public IEnumerable<Evidences> getEvidencesList()
-        //{
-        //    using (var context = new WeWatchDbDemoContext())
-        //    {
-        //        return context.Evidences.ToList();
-        //    }
-
-        //}
-
-        //[HttpGet]
-        //public Evidences getEvidencesDetail(int id)
-        //{
-        //    using (var context = new WeWatchDbDemoContext())
-        //    {
-        //        return context.Evidences.Where(incident => incident.Id == id).FirstOrDefault();
-        //    }
-        //}
 
 
     }
