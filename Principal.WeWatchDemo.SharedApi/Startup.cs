@@ -30,9 +30,9 @@ namespace Principal.WeWatchDemo.SharedApi
         {
             services.AddControllers();
 
-            //services.AddMvc(option => option.EnableEndpointRouting = false)
-            //    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-            //    .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<WeWatchDbDemoContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WeWatchDemoConStrings")));

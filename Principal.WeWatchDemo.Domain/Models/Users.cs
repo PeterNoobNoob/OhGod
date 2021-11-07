@@ -14,6 +14,9 @@ namespace Principal.WeWatchDemo.Domain.Models
             Evidences = new HashSet<Evidences>();
             Incidents = new HashSet<Incidents>();
             RejectedRequests = new HashSet<RejectedRequests>();
+
+            Evidences = new List<Evidences>();
+            Incidents = new List<Incidents>();
         }
 
         public int Id { get; set; }

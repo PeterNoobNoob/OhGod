@@ -9,6 +9,10 @@ namespace Principal.WeWatchDemo.Domain.Models
 {
     public partial class Reports
     {
+        public Reports()
+        {
+            Incident = new Incidents();
+        }
         public int Id { get; set; }
         public int IncidentId { get; set; }
         public string HttpLink { get; set; }

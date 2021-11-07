@@ -12,6 +12,8 @@ namespace Principal.WeWatchDemo.Domain.Models
         public Evidences()
         {
             Medias = new HashSet<Medias>();
+
+            Medias = new List<Medias>();
         }
 
         public int Id { get; set; }
