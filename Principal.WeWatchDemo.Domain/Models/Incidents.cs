@@ -15,6 +15,14 @@ namespace Principal.WeWatchDemo.Domain.Models
             Medias = new HashSet<Medias>();
             RejectedRequests = new HashSet<RejectedRequests>();
             Reports = new HashSet<Reports>();
+
+            Evidences = new List<Evidences>();
+            Medias = new List<Medias>();
+            RejectedRequests = new List<RejectedRequests>();
+            Reports = new List<Reports>();
+
+            Owner = new Users();
+
         }
 
         public int Id { get; set; }

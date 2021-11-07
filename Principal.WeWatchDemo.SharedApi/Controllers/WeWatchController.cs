@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Principal.WeWatchDemo.Domain.Models;
 using System;
@@ -16,22 +17,76 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
 
 
         private readonly ILogger<WeWatchController> _logger;
+        private readonly WeWatchDbDemoContext _context;
 
-        public WeWatchController(ILogger<WeWatchController> logger)
+        public WeWatchController(ILogger<WeWatchController> logger, WeWatchDbDemoContext context)
         {
             _logger = logger;
+            _context = context;
+        }
+
+        //Incidents GetAll, Getdetail, Upsert:
+
+        // Get All Incidents
+        [HttpGet("getIncidentList")]
+        public async Task<ActionResult<IEnumerable<Incidents>>> getIncidentList()
+        {
+            return await _context.Incidents.ToListAsync();
         }
 
 
-        [HttpGet]
-        public IEnumerable<Incidents> getIncidentList()
+        // Incident Detail
+        [HttpGet("getIncidentDetail/{id}")]
+        public async Task<ActionResult<Incidents>> getIncidentDetail(int id) 
         {
-            using (var context = new WeWatchDbDemoContext())
+            var incidents = _context.Incidents
+                                .Include(inc => inc.Evidences)
+                                .Include(inc => inc.Medias)
+                                .Include(inc => inc.Reports)  
+                                .Where(inc => inc.Id == id)
+                                .FirstOrDefault();
+
+            if (incidents == null)
             {
-                return context.Incidents.ToList();
+                return NotFound();  
             }
 
+            return incidents;
         }
+
+        // Malo by to byt spravne
+        [HttpGet("saveIncident/{id}")]
+        public async Task<ActionResult<Incidents>> saveIncident(int? id)
+        {
+            if (id == null || id <= 0)
+            {
+                Incidents incident = new Incidents();
+
+                _context.Incidents.Add(incident);
+                _context.SaveChanges();
+
+                return incident;
+            }
+
+            var incidents = _context.Incidents
+                                .Include(inc => inc.Evidences)
+                                .Include(inc => inc.Medias)
+                                .Include(inc => inc.Reports)
+                                .Where(inc => inc.Id == id)
+                                .FirstOrDefault();
+
+            if (incidents == null)
+            {
+                return NotFound();
+            }
+
+            _context.SaveChanges();
+
+            return incidents;
+        }
+
+
+
 
         //[HttpGet]
         //public Incidents getIncidentDetail(int id)
