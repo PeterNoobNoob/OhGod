@@ -25,7 +25,7 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
             _context = context;
         }
 
-        //Incidents GetAll, Getdetail, Upsert:
+        //Incidents: GetAll, Getdetail, Upsert:
 
         // Get All Incidents
         [HttpGet("getIncidentList")]
@@ -54,35 +54,10 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
             return incidents;
         }
 
-        // Malo by to byt spravne
         [HttpGet("saveIncident/{id}")]
         public async Task<ActionResult<Incidents>> saveIncident(int? id)
         {
-            if (id == null || id <= 0)
-            {
-                Incidents incident = new Incidents();
-
-                _context.Incidents.Add(incident);
-                _context.SaveChanges();
-
-                return incident;
-            }
-
-            var incidents = _context.Incidents
-                                .Include(inc => inc.Evidences)
-                                .Include(inc => inc.Medias)
-                                .Include(inc => inc.Reports)
-                                .Where(inc => inc.Id == id)
-                                .FirstOrDefault();
-
-            if (incidents == null)
-            {
-                return NotFound();
-            }
-
-            _context.SaveChanges();
-
-            return incidents;
+            throw new NotImplementedException(); 
         }
 
 
