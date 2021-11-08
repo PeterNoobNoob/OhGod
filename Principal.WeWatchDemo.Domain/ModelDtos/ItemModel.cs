@@ -6,7 +6,7 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
 {
     class ItemModel
     {
-        // common for both Incident and Evidence
+        // Common properties for both Incident and Evidence
         public int Id { get; set; }
         public int OwnerId { get; set; }
         public DateTime? DateOfEvent { get; set; }
@@ -27,5 +27,21 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
         //public virtual ICollection<Medias> Medias { get; set; }
         //public virtual ICollection<RejectedRequests> RejectedRequests { get; set; }
         //public virtual ICollection<Reports> Reports { get; set; }
+
+        //User Info:
+
+        public int UserId { get; set; }
+        public string UserEmail { get; set; }
+        public string UserPassword { get; set; }
+        public string UserDeviceId { get; set; }
+        public Guid UserToken { get; set; }
+        public string UserForename { get; set; }
+        public string UserSurname { get; set; }
+        public string UserPhone { get; set; }
+        public string UserCity { get; set; }
+        public string UserStreet { get; set; }
+        public string UserZip { get; set; }
+        public DateTime? UserCreated { get; set; }
+        public string UserProfilePic { get; set; }
     }
 }
