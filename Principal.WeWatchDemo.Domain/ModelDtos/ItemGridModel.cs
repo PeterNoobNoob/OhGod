@@ -7,6 +7,8 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
 {
     public class ItemGridModel : BaseResponseModel
     {
+        public int Id { get; set; }
+        public int IncidentOrEvidenceId { get; set; }
         public string Forename { get; set; }
         public string Surname { get; set; }
         public double? Latitude { get; set; }

@@ -24,6 +24,9 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
         public IncidentTypes Type { get; set; }
         public bool? IsClosed { get; set; }
         public bool? IsOwnerVictim { get; set; }
+
+        // Evidence specific:
+        public int? IncidentId { get; set; }
         /// <summary>
         /// Auxuliary property to easy differ Incident from Evidence
         /// </summary>

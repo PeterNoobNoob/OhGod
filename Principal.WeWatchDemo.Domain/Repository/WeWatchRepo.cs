@@ -27,7 +27,7 @@ namespace Principal.WeWatchDemo.Domain.Repository
                 IsClosed = false,
                 IsOwnerVictim = true,
                 IsIncident = true,
-
+                IncidentId = null,
                 Medias = new List<MediasDto>
                 {
                     new MediasDto
@@ -77,6 +77,7 @@ namespace Principal.WeWatchDemo.Domain.Repository
                 IsClosed = false,
                 IsOwnerVictim = true,
                 IsIncident = false,
+                IncidentId = 1,
 
                 Medias = new List<MediasDto>
                 {
@@ -117,6 +118,8 @@ namespace Principal.WeWatchDemo.Domain.Repository
         {
             new ItemGridModel
             {
+                Id = 1,
+                IncidentOrEvidenceId = 1,
                 Forename = "Daniel",
                 Surname = "Húlka",
                 Latitude = 40.741895,
@@ -130,6 +133,8 @@ namespace Principal.WeWatchDemo.Domain.Repository
 
             new ItemGridModel
             {
+                Id = 2,
+                IncidentOrEvidenceId = 2,
                 Forename = "Zdenek",
                 Surname = "Švestka",
                 Latitude = 40.741895,
@@ -138,20 +143,22 @@ namespace Principal.WeWatchDemo.Domain.Repository
                 Created = DateTime.Now,
                 IsClosed = false,
                 IsIncident = false,
-                AssociatedEvidenceCount = 3
+                AssociatedEvidenceCount = null
             },
 
             new ItemGridModel
             {
-                Forename = "Daniel",
-                Surname = "Húlka",
+                Id = 3,
+                IncidentOrEvidenceId = 2,
+                Forename = "Milos",
+                Surname = "Zeman",
                 Latitude = 40.741895,
                 Longitude = -73.989308,
                 ProfilePic = "https://hudba.zoznam.sk/media/obrazky/magazin/galeria/82141/daniel-hulka-muzikal-dracula.jpg",
                 Created = DateTime.Now,
                 IsClosed = false,
                 IsIncident = false,
-                AssociatedEvidenceCount = 3
+                AssociatedEvidenceCount = null
             }
         };
 

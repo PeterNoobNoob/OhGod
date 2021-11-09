@@ -6,7 +6,7 @@ namespace Principal.WeWatchDemo.Domain.responseModels
 {
     public class BaseResponseModel
     {
-        public string ErrorCode { get; set; }
+        public string Status { get; set; }
         public string Message { get; set; }
     }
 }

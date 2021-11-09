@@ -12,6 +12,7 @@ namespace Principal.WeWatchDemo.Domain.Models
     {
         public int Id { get; set; }
         public int IncidentId { get; set; }
+        public int EvidenceId { get; set; }
         public string HttpLink { get; set; }
 
         public virtual Incidents Incident { get; set; }
