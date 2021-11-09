@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Principal.WeWatchDemo.Domain.ModelDtos;
 using Principal.WeWatchDemo.Domain.Models;
+using Principal.WeWatchDemo.Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,45 +15,32 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
     [ApiController]
     public class WeWatchController : ControllerBase
     {
-
-
-
         private readonly ILogger<WeWatchController> _logger;
-        private readonly WeWatchDbDemoContext _context;
+        private readonly WeWatchDemoDbContext _context;
 
-        public WeWatchController(ILogger<WeWatchController> logger, WeWatchDbDemoContext context)
+        public WeWatchController(ILogger<WeWatchController> logger, WeWatchDemoDbContext context)
         {
             _logger = logger;
             _context = context;
         }
 
+        private IWeWatchRepo itemModels = new WeWatchRepo();
+
         //Incidents: GetAll, Getdetail, Upsert:
 
         // Get All Incidents
         [HttpGet("getIncidentList")]
-        public async Task<ActionResult<IEnumerable<Incidents>>> getIncidentList()
+        public ActionResult<IEnumerable<ItemModel>> getIncidentList()
         {
-            return await _context.Incidents.ToListAsync();
+            return itemModels.GetAllItemModels();
         }
 
 
         // Incident Detail
         [HttpGet("getIncidentDetail/{id}")]
-        public async Task<ActionResult<Incidents>> getIncidentDetail(int id) 
+        public ActionResult<ItemModel> getIncidentDetail(int id) 
         {
-            var incidents = _context.Incidents
-                                .Include(inc => inc.Evidences)
-                                .Include(inc => inc.Medias)
-                                .Include(inc => inc.Reports)  
-                                .Where(inc => inc.Id == id)
-                                .FirstOrDefault();
-
-            if (incidents == null)
-            {
-                return NotFound();  
-            }
-
-            return incidents;
+            return itemModels.GetItemModelDetail(id);
         }
 
         [HttpGet("saveIncident/{id}")]

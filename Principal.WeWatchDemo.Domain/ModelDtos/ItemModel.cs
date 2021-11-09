@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Principal.WeWatchDemo.Domain.ModelDtos.Enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Principal.WeWatchDemo.Domain.ModelDtos
 {
-    class ItemModel
+    public class ItemModel
     {
         // Common properties for both Incident and Evidence
         public int Id { get; set; }
-        public int OwnerId { get; set; }
+        public int? OwnerId { get; set; }
         public DateTime? DateOfEvent { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
@@ -18,19 +20,18 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
         public DateTime? Updated { get; set; }
 
         // Incident specific:
-        public string Type { get; set; }
+        public IncidentTypes Type { get; set; }
         public bool? IsClosed { get; set; }
         public bool? IsOwnerVictim { get; set; }
+        /// <summary>
+        /// Auxuliary property to easy differ Incident from Evidence
+        /// </summary>
+        public bool? IsIncident { get; set; }
 
-        //public virtual Users Owner { get; set; }
-        //public virtual ICollection<Evidences> Evidences { get; set; }
-        //public virtual ICollection<Medias> Medias { get; set; }
-        //public virtual ICollection<RejectedRequests> RejectedRequests { get; set; }
-        //public virtual ICollection<Reports> Reports { get; set; }
+        public List<MediasDto> Medias { get; set; }
 
         //User Info:
-
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public string UserDeviceId { get; set; }
@@ -42,6 +43,9 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
         public string UserStreet { get; set; }
         public string UserZip { get; set; }
         public DateTime? UserCreated { get; set; }
-        public string UserProfilePic { get; set; }
+        /// <summary>
+        /// Here will be stored link to blob storage
+        /// </summary>
+        public string UserProfilePic { get; set; } 
     }
 }

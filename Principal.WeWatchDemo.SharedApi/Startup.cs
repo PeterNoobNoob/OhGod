@@ -34,7 +34,7 @@ namespace Principal.WeWatchDemo.SharedApi
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-            services.AddDbContext<WeWatchDbDemoContext>(options =>
+            services.AddDbContext<WeWatchDemoDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WeWatchDemoConStrings")));
         }
 
@@ -58,6 +58,8 @@ namespace Principal.WeWatchDemo.SharedApi
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwagger();
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Principal.WeWatchDemo.SharedApi.Controllers
     [ApiController]
     public class IncidentsController : ControllerBase
     {
-        private readonly WeWatchDbDemoContext _context;
+        private readonly WeWatchDemoDbContext _context;
 
-        public IncidentsController(WeWatchDbDemoContext context)
+        public IncidentsController(WeWatchDemoDbContext context)
         {
             _context = context;
         }

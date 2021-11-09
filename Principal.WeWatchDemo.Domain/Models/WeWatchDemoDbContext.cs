@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Principal.WeWatchDemo.Domain.Models
 {
-    public partial class WeWatchDbDemoContext : DbContext
+    public partial class WeWatchDemoDbContext : DbContext
     {
-        public WeWatchDbDemoContext()
+        public WeWatchDemoDbContext()
         {
         }
 
-        public WeWatchDbDemoContext(DbContextOptions<WeWatchDbDemoContext> options)
+        public WeWatchDemoDbContext(DbContextOptions<WeWatchDemoDbContext> options)
             : base(options)
         {
         }
