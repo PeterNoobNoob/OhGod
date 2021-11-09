@@ -7,5 +7,7 @@ namespace Principal.WeWatchDemo.Domain.Repository
     {
         List<ItemModel> GetAllItemModels();
         ItemModel GetItemModelDetail(int id);
+        void CreateItemModel(ItemModel itemModel);
+        List<ItemGridModel> GetAllItemGridModels();
     }
 }

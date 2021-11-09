@@ -113,6 +113,52 @@ namespace Principal.WeWatchDemo.Domain.Repository
             }
         };
 
+        List<ItemGridModel> listItemGridModels = new List<ItemGridModel>
+        {
+            new ItemGridModel
+            {
+                Forename = "Daniel",
+                Surname = "Húlka",
+                Latitude = 40.741895,
+                Longitude = -73.989308,
+                ProfilePic = "https://hudba.zoznam.sk/media/obrazky/magazin/galeria/82141/daniel-hulka-muzikal-dracula.jpg",
+                Created = DateTime.Now,
+                IsClosed = false,
+                IsIncident = true,
+                AssociatedEvidenceCount = 3
+            },
+
+            new ItemGridModel
+            {
+                Forename = "Zdenek",
+                Surname = "Švestka",
+                Latitude = 40.741895,
+                Longitude = -73.989308,
+                ProfilePic = "https://hudba.zoznam.sk/media/obrazky/magazin/galeria/82141/daniel-hulka-muzikal-dracula.jpg",
+                Created = DateTime.Now,
+                IsClosed = false,
+                IsIncident = false,
+                AssociatedEvidenceCount = 3
+            },
+
+            new ItemGridModel
+            {
+                Forename = "Daniel",
+                Surname = "Húlka",
+                Latitude = 40.741895,
+                Longitude = -73.989308,
+                ProfilePic = "https://hudba.zoznam.sk/media/obrazky/magazin/galeria/82141/daniel-hulka-muzikal-dracula.jpg",
+                Created = DateTime.Now,
+                IsClosed = false,
+                IsIncident = false,
+                AssociatedEvidenceCount = 3
+            }
+        };
+
+
+
+
+
         public List<ItemModel> GetAllItemModels()
         {
             return listItemModels;
@@ -121,6 +167,16 @@ namespace Principal.WeWatchDemo.Domain.Repository
         public ItemModel GetItemModelDetail(int id)
         {
             return listItemModels.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void CreateItemModel(ItemModel itemModel)
+        {
+            listItemModels.Add(itemModel);
+        }
+
+        public List<ItemGridModel> GetAllItemGridModels()
+        {
+            return listItemGridModels;
         }
     }
 }

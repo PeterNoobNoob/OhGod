@@ -1,4 +1,5 @@
 ﻿using Principal.WeWatchDemo.Domain.ModelDtos.Enums;
+using Principal.WeWatchDemo.Domain.responseModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Principal.WeWatchDemo.Domain.ModelDtos
 {
-    public class ItemModel
+    public class ItemModel : BaseResponseModel
     {
         // Common properties for both Incident and Evidence
         public int Id { get; set; }
@@ -30,7 +31,7 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
 
         public List<MediasDto> Medias { get; set; }
 
-        //User Info:
+        //Info about user that is associated with incident:
         public int? UserId { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }

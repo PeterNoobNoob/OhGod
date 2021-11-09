@@ -1,20 +1,19 @@
 ﻿using Principal.WeWatchDemo.Domain.responseModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Principal.WeWatchDemo.Domain.ModelDtos
+namespace Principal.WeWatchDemo.Domain.Models
 {
-    public class MediasDto : BaseResponseModel
+    public partial class ReportsDto: BaseResponseModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string BlobFileAddress { get; set; }
-        public DateTime? Created { get; set; }
+        public int IncidentId { get; set; }
+        public string HttpLink { get; set; }
 
+        public virtual Incidents Incident { get; set; }
     }
 }
