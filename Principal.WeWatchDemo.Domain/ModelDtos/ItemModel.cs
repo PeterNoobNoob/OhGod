@@ -9,7 +9,7 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
 {
     public class ItemModel : BaseResponseModel
     {
-        // Common properties for both Incident and Evidence
+        // Common properties for both Incident and Evidence:
         public int Id { get; set; }
         public int? OwnerId { get; set; }
         public DateTime? DateOfEvent { get; set; }
@@ -34,7 +34,7 @@ namespace Principal.WeWatchDemo.Domain.ModelDtos
 
         public List<MediasDto> Medias { get; set; }
 
-        //Info about user that is associated with incident:
+        //Info about user that is associated with the incident:
         public int? UserId { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
